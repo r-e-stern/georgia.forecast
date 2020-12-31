@@ -1,0 +1,39 @@
+html, body {
+    width: 100%;height: 100%;margin: 0;padding: 0;
+}
+#map{
+    position: relative;
+    width: 100.0%;
+    height: 100.0%;
+    left: 0.0%;
+    top: 0.0%;
+}
+.tooltip, .legend td, .leaflet-control-attribution{
+    font-family: 'Open Sans', sans-serif;
+}
+.legend table{
+    border-collapse: collapse;
+}
+.legend td{
+    width: 40px;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 2px;
+}
+.legend td:last-child{
+    border-top:none;
+    border-right: none;
+    width:20px;
+}
+.legend td:nth-child(1){
+    background: linear-gradient(to right, rgba(181,181,223,1), rgba(181,223,223,1));
+}
+.legend td:nth-child(2){
+    background: linear-gradient(to right, rgba(181,223,223,1), rgba(181,223,181,1));
+}
+.legend td:nth-child(3){
+    background: linear-gradient(to right, rgba(181,223,181,1), rgba(223,223,181,1));
+}
+.legend td:nth-child(4){
+    background: linear-gradient(to right, rgba(223,223,181,1), rgba(223,181,181,1));
+}
