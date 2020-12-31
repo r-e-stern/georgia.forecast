@@ -14,5 +14,5 @@ These forecasts were generated at noon Pacific time on December 31, 2020:
 ## How it works
 This tool was written using JavaScript, jQuery, Leaflet.js, and custom Mapbox tiles of Georgia. It uses a shapefile from the [Atlanta Regional Commission](https://arc-garc.opendata.arcgis.com/datasets/dc20713282734a73abe990995de40497_68) and forecast data from the [National Weather Service](https://www.weather.gov).
 
-###iframe.widget
+### iframe.widget
 This repository also contains a version of the web tool that is optimized to be used in locally-hosted `<iframe>` elements. 
