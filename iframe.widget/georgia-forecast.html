@@ -198,7 +198,7 @@
             geojson = JSON.parse(gj);
 
             for(let i=0; i<geojson.features.length; i++){
-                setTimeout(function(){getForecasts(geojson.features[i])},i*90);
+                setTimeout(function(){getForecasts(geojson.features[i])},i*200);
             }
 
         });

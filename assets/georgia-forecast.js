@@ -133,7 +133,7 @@ $(document).ready(function(){
         geojson = gj;
 
         for(let i=0; i<geojson.features.length; i++){
-            setTimeout(function(){getForecasts(geojson.features[i])},i*150);
+            setTimeout(function(){getForecasts(geojson.features[i])},i*250);
         }
 
     });
