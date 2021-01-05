@@ -63,7 +63,7 @@
 <body>
 <div id='map'></div>
 <script>
-    let ELECTIONDAY = new Date('2021-01-05T17:00:00.000Z');
+    // let ELECTIONDAY = new Date('2021-01-05T17:00:00.000Z');
     let geojson;
 
     let map = L.map('map').setView([32.662111, -83.438306], 7);
@@ -140,29 +140,29 @@
     };
 
     let getForecasts = feature => {
-        $.get(feature.endpoint,function(r){
-            feature.forecasts = r.properties.periods;
-            feature.elec = findTuesdayForecast(feature.forecasts);
-            feature.color = HSLToHex(temptohue(feature.elec),83,50);
-            let layer = L.geoJSON(feature,getStyle(feature))
-            layer.on({
-                mouseover: highlightCounty,
-                mouseout: unhighlightCounty
-            });
-            layer.bindTooltip(getPopupContent(feature),{className: 'tooltip'});
-            layer.addTo(map);
+        // $.get(feature.endpoint,function(r){
+        //     feature.forecasts = r.properties.periods;
+        //     feature.elec = findTuesdayForecast(feature.forecasts);
+        //     feature.color = HSLToHex(temptohue(feature.elec),83,50);
+        let layer = L.geoJSON(feature,getStyle(feature))
+        layer.on({
+            mouseover: highlightCounty,
+            mouseout: unhighlightCounty
         });
+        layer.bindTooltip(getPopupContent(feature),{className: 'tooltip'});
+        layer.addTo(map);
+        // });
     };
 
-    let findTuesdayForecast = forecasts => {
-        return forecasts.find(x => isWithin(ELECTIONDAY,x)).temperature;
-    };
+    // let findTuesdayForecast = forecasts => {
+    //     return forecasts.find(x => isWithin(ELECTIONDAY,x)).temperature;
+    // };
 
-    let isWithin = (date, forecast) => {
-        let start = new Date(forecast.startTime);
-        let end = new Date(forecast.endTime);
-        return start.getTime()<=date.getTime() && date.getTime()<=end.getTime();
-    };
+    // let isWithin = (date, forecast) => {
+    //     let start = new Date(forecast.startTime);
+    //     let end = new Date(forecast.endTime);
+    //     return start.getTime()<=date.getTime() && date.getTime()<=end.getTime();
+    // };
 
     // from https://leafletjs.com/examples/choropleth/
     let highlightCounty = e => {
