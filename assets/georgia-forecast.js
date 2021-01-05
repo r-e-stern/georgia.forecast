@@ -20,12 +20,12 @@ let getStyle = feature => {
 };
 
 let temptohue = t => {
-    if(t<=50){
+    if(t<=45){
         return 240;
-    }else if(t>=70){
+    }else if(t>=65){
         return 0;
     }else{
-        return Math.round((70-t)*12);
+        return Math.round((65-t)*12);
     }
 };
 
@@ -78,7 +78,7 @@ let getForecasts = feature => {
     // $.get(feature.endpoint,function(r){
     //     feature.forecasts = r.properties.periods;
     //     feature.elec = findTuesdayForecast(feature.forecasts);
-    //     feature.color = HSLToHex(temptohue(feature.elec),83,50);
+    feature.color = HSLToHex(temptohue(feature.elec),83,50);
     let layer = L.geoJSON(feature,getStyle(feature))
     layer.on({
         mouseover: highlightCounty,
@@ -122,7 +122,7 @@ let legend = L.control({position: 'topright'});
 
 legend.onAdd = function (map){
     let div = L.DomUtil.create('div', 'legend');
-    div.innerHTML = '<table><tr><td>50&deg;F</td><td>55</td><td>60</td><td>65</td><td>70&deg;F</td></tr></table>';
+    div.innerHTML = '<table><tr><td>45&deg;F</td><td>50</td><td>55</td><td>60</td><td>65&deg;F</td></tr></table>';
     return div;
 };
 
@@ -133,7 +133,7 @@ $(document).ready(function(){
         geojson = gj;
 
         for(let i=0; i<geojson.features.length; i++){
-            setTimeout(function(){getForecasts(geojson.features[i])},i*250);
+            getForecasts(geojson.features[i]);
         }
 
     });
