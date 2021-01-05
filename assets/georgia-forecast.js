@@ -14,7 +14,7 @@ let getStyle = feature => {
     return {
         color: 'transparent',
         weight: 1,
-        fillColor: feature.color,
+        fillColor: feature.properties.color,
         opacity: .7
     }
 };
@@ -71,14 +71,14 @@ let HSLToHex = (h,s,l) => {
 };
 
 let getPopupContent = feature => {
-    return '<b>'+feature.properties.name + ' County: </b>' + feature.elec + '&deg;F';
+    return '<b>'+feature.properties.name + ' County: </b>' + feature.properties.elec + '&deg;F';
 };
 
 let getForecasts = feature => {
     // $.get(feature.endpoint,function(r){
     //     feature.forecasts = r.properties.periods;
     //     feature.elec = findTuesdayForecast(feature.forecasts);
-    feature.color = HSLToHex(temptohue(feature.elec),83,50);
+    feature.properties.color = HSLToHex(temptohue(feature.properties.elec),83,50);
     let layer = L.geoJSON(feature,getStyle(feature))
     layer.on({
         mouseover: highlightCounty,
